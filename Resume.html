@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Generator</title>
+    <link rel="stylesheet" href="Resume.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    </style>
+</head>
+<body>
+    <!-- form of cv -->
+   <div id="Container">
+      <!-- heading of page -->
+      <h1 class="text-center my-2">Resume Generator</h1>
+      <p class="text-center" Id="makeby">By Krishna</p>
+      <div class="row">
+        <!-- page divide into parts -->
+        <!-- first part -->
+        <div class="col-md-6" style="margin-left: 50px;">
+         <h3>Personal Information</h3>
+         
+
+         <div class="form-group">
+             <!-- name label with textfield -->
+             <label for="name">Your Name*</label>
+             <input type="text" id="name" class="form-control mt-1"style="width: 400px;"placeholder="Enter your full name" required>
+        </div>
+
+          <!-- Dob Label and datefield -->
+         <div class="form-group mt-3">
+            <label for="DOB">Date of Birth*</label>
+            <input type="date" id="DOB" class="form-control mt-1"style="width: 400px;"required>
+          </div>
+
+
+          <!-- Gender label with 3 radio buttons -->
+        <div class="form-group mt-3">
+        <label>Gender</label>
+           <div class="form-check mt-1"><input class="form-check-input" type="radio" id="male" name="gender"value="Male" checked> <label for="male" >Male</label>
+            <div class="form-check" style="display: inline-block; margin-left: 100px;">
+            <input class="form-check-input" type="radio" id="female"name="gender" value="Female">
+            <label for="female">Female</label>
+            </div>
+            <div class="form-check" style="display: inline-block; margin-left: 100px;">
+                <input class="form-check-input" type="radio" id="others"name="gender" value="Others">
+                <label for="Others">Others</label>
+                </div>
+        </div>
+        </div>
+
+
+        <!-- Contact no label with textfield -->
+        <div class="form-group mt-3" >
+            <label for="contact">Contact No.*</label>
+            <input type="tel" Id="contact" class="form-control mt-1" style="width: 400px;"placeholder="Enter your phone number"required>
+        </div>
+
+
+
+        <!-- Address label with textarea -->
+        <div class="form-group mt-3">
+            <label for="address">Address*</label>
+            <textarea rows="4" Id="address" class="form-control mt-1" placeholder="Enter your Local Address" style="width:400px; margin-left: 10px;"required></textarea>
+        </div>
+
+
+
+        <p class="text-secondary mt-4">Social Handles Link</p>
+        <!-- gmail label with text field -->
+        <div class="form-group mt-3">
+            <label for="gmail">Gmail Id*</label>
+            <input type="email" id="gmail" class="form-control mt-1" style="width: 400px;"placeholder="eg.xyz@gmail.com"required>
+        </div>
+
+        <!-- facebook label with urlfield -->
+        <div class="form-group mt-3" >
+            <label for="facebook">Facebook</label>
+            <input type="url" id="facebook" class="form-control mt-1" style="width: 400px;"placeholder="Enter Facebook url">
+        </div>
+
+        <!-- Instagram label with urlfield -->
+        <div class="form-group mt-3" >
+            <label for="instagram">Instagram</label>
+            <input type="url" Id="instagram" class="form-control mt-1" style="width: 400px;"placeholder="Enter Instagram url">
+        </div>
+
+        <!-- Linkdin label with urlfield -->
+        <div class="form-group mt-3" >
+            <label for="linkdin">Linkdin</label>
+            <input type="url" Id="linkdin" class="form-control mt-1" style="width: 400px;"placeholder="Enter Linkdin url">
+        </div>
+
+        <!-- file input extension .jpg,.png -->
+        <div class="form-group mt-3" >
+            <label for="profileimage" style="font-weight: bolder;">Upload Profile Image</label>
+            <input type="file" class="form-control-file" accept=".jpg,.png" id="profileimage"/>
+        </div>
+        </div>
+
+
+
+
+       <!-- second part -->
+        <div class="col-md-5" style="margin-left: 50px;">
+          <h3>Professional Information</h3>  
+          <div class="form-group">
+
+            <!-- probile label with textarea -->
+            <label for="profile">Profile*</label>
+            <textarea id="profile" rows="4" class="form-control mt-1"placeholder="Write about yourself" style="width:400px; margin-left: 10px;"required></textarea>
+        </div>
+
+
+       <!-- qualification label with textfield and button-->
+        <span id="Qualification-group">
+        <div class="form-group mt-3" Id="qualification">
+            <label for="education">Qualifications</label>
+            </div>
+            <input type="text" class="form-control mt-1 qualificationfield" style="width: 400px;"placeholder="Education with year and percentage(%)"required>
+         <div class="form-group mt-3" Id="divqualificationbutton">
+        <button class="btn-info" id="qualificationbutton"onclick="addqualification()" style="margin-left: 350px;">Add</button>
+        </div>
+        </span>
+
+
+        <!-- skills label with textfield and button -->
+        <span id="Skill-group">
+        <div class="form-group mt-3">
+            <label for="education">Skills</label>
+         </div>
+            <input type="text" id="skill" class="form-control mt-1 skillfield" style="width: 400px;"placeholder="eg.language,technical and others skills etc."required>
+        <div class="form-group mt-3" style="margin-left: 350px;" id="addskillbutton">
+        <button class="btn-info"onclick="addskill()">Add</button>
+        </div>
+        </span>
+
+
+        <!--experience label with textarea and button  -->
+        <span id="Experience-group">
+        <div class="form-group mt-3">
+            <label for="address">Work Experience</label>
+            </div>
+            <span id="textspan">
+            <textarea rows="4" id="experience" class="form-control mt-1 experiencefield" placeholder="Mention Designation, work place with address and working years etc." style="width:400px; margin-left: 10px;"></textarea>
+            </span>
+        <div class="form-group mt-3" style="margin-left: 350px;"id="addexperiencebutton">
+            <button class="btn-info" onclick="addexperience()">Add</button>
+        </div>
+        </span>
+
+        <!-- certification label with textfield and button -->
+         <span id="certification-group">
+        <div class="form-group mt-3">
+            <label for="certification">Certifications</label>
+            </div>
+            <input type="text" id="certification" class="form-control mt-1 certificatefield" style="width: 400px;"placeholder="Mention the name of certificates.">
+        <div class="form-group mt-3" style="margin-left: 350px;"id="addcertificationbutton">
+        <button class="btn-info"onclick="addcertificate()">Add</button>
+          </div>
+          </span>
+
+
+        <!-- Internship label with textfield and button -->
+          <span Id="internship-group">
+            <div class="form-group mt-3">
+                <label for="internship">Internship</label>
+                </div>
+                <input type="text" Id="internship" class="form-control mt-1 internshipfield" style="width: 400px;"placeholder="Mention here Internship name, place and year.">
+            <div class="form-group mt-3" style="margin-left: 350px;"id="addinternshipbutton">
+            <button class="btn-info"onclick="addinternship()">Add</button>
+              </div>
+              </span>
+
+
+        <!-- Project label with textfield and button -->
+        <span id="Project-group">
+            <div class="form-group mt-3">
+                <label for="project">Project Names</label>
+                </div>
+                <input type="text" Id="project" class="form-control mt-1 projectfield" style="width: 400px;"placeholder="Enter here project name with technology.">
+            <div class="form-group mt-3" style="margin-left: 350px;"id="addprojectbutton">
+            <button class="btn-info"onclick="addproject()">Add</button>
+            
+        <!-- submit button as gerate cv -->
+        <div class="form-group"> <button onclick="generateCV()" type="submit" id="sumit1" style="margin-top:200px;margin-left:-300px;width:300px;height:50px;font-family:Verdana, Geneva, Tahoma, sans-serif;box-shadow: 2px -2px 10px 2px green;background-color:rgb(60, 141, 233);border-radius: 20px;">Generate CV</button>
+         </div>
+         </div>
+         </div>
+        </span>
+      </div>
+    </div>
+
+
+    <!-- Cv templet degin -->
+    <div Id="templet">
+        <div class="row">
+        <!-- page divide into two parts -->
+         <div class="col-md-4"style="background-color:rgb(212, 248, 248)">
+             <!-- first part -->
+            <!-- default image with name-->
+            <div id="profileimage" class="form-group text-center">
+            <img src="default profile.png" alt="default profile image"Id="profileimagetemp" class="img-fluid my-4 img1"/>
+            <p id="NAME">Krishna pandey</p>
+            </div>
+
+            <!-- personal info -->
+        
+            <div class="form-group "  id="personalinfo" >
+            <h4 id="headinginfo" class="infohead">Personal Information</h4>
+            </div><hr>
+            <p class="detail" >Gender:<p Id="gendert"class="detail">Male</p></p>
+            <p class="detail">DOB:<p class="detail"Id="dobt">15/10/2000</p></p>
+            <p class="detail">Address:<p class="detail"Id="addresst"> Khaira,chhata(Mathura)</p></p> 
+            <p class="detail">Contact no:<p class="detail"Id="contactt">9548829374</p></p> 
+
+
+            <!-- social links -->
+            <div class="form-group" id="sociallinks">
+          <h4 id="socialheading" class="infohead">Social Handles</h4>
+          <hr>
+
+          <!-- gmail image with id -->
+          <span id="gmailtemp">
+         <img src="gmail.png" Style="width: 25px;float: left;margin-right: 20px;margin-left: 13px;border-radius: 20%;box-shadow: 2px 3px 2px black;">
+          <p id="gmailt" class="detail" style="display:block ;">sharmakrishapaney@gmail.com</p> 
+            </span>
+
+         <!-- facebook image and link -->
+        <span id="facebooktemp">
+          <img src="facebook.png" Style="width: 30px;float: left;margin-right: 20px;margin-left: 10px;border-radius: 50%;box-shadow: 2px 3px 2px black; display: block;">
+         <a href="#" class="detail" target="_blank" style="text-decoration: none; "  id="facebookt">Facebook</a>
+         </span>
+
+        <!-- Instagram image and link -->
+         <div id="instagramtemp" style="margin: 20px;">
+            <img src="instagram.jpg" class="instagramandlinkdinlogo"id="instaimg">
+           <a href="#" class="detail" target="_blank" style="text-decoration: none;" id="instagramt">Instagram</a>
+         </div>
+
+
+         <!-- Linkdin image and link -->
+         <div id="linkdintemp" style="margin: 20px;">
+            <img src="linkdin.jpg" class="instagramandlinkdinlogo">
+           <a href="#" class="detail" target="_blank" style="text-decoration: none;"id="linkdint">Linkdin</a>
+         </div>
+           </div>
+          
+         </div>
+         <div class="col-md-7">
+             <!-- second part -->
+            
+             <!--print Button  -->
+             <div id="printbutton"style="margin-left:650px;"><button class="btn-primary" onclick="printCV()">Print CV</button></div>
+
+               <!-- name as heading -->
+             <div class="form-group text-center mt-3" id="nameasheading">
+              <h2 id="Name1"style="text-shadow:-2px -3px 2px gray; text-decoration:underline;">Krishna pandey</h2>
+              </div>
+
+
+               
+              <!-- cards for professional details -->
+              <div class="form-group mt-5" id="profiledetail">
+                <div class="card-header">
+              <h3 style="color: indigo;
+              text-shadow: 2px 3px 2px gray;
+              font-weight: bold;">Profile</h3></div>
+             <div class="card">
+                <div class="card-body"Id="profiletemp">
+                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem nemo dignissimos praesentium suscipit perferendis eaque distinctio! Explicabo vero rerum quidem sapiente nesciunt. Architecto, mollitia? Ratione temporibus porro aliquid ipsa corporis?
+                </div>
+              </div>
+             </div>
+
+
+            <!--Qualification Details  -->
+             <div class="form-group mt-3" id="qualificationdetail">
+                <div class="card-header"><h3 style="color: indigo;
+                text-shadow: 2px 3px 2px gray;
+                font-weight: bold;">Qualifications</h3></div>
+               <div class="card">
+                  <div class="card-body" id="qualificationtemp">
+                   <ul Id="qualificationlist">
+                     <li>
+                         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Saepe, aut?
+                     </li>
+                     <li>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Saepe, aut?
+                    </li>
+                   </ul>
+                  </div>
+                </div>
+               </div>
+
+            
+            <!-- Skills Details -->
+               <div class="form-group mt-3" id="Skillsdetail">
+                <div class="card-header"><h3 style="color: indigo;
+                text-shadow: 2px 3px 2px gray;
+                font-weight: bold;">Skills</h3></div>
+               <div class="card">
+                  <div class="card-body">
+                   <ul id="skilllist">
+                     <li>
+                         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Saepe, aut?
+                     </li>
+                     <li>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Saepe, aut?
+                    </li>
+                   </ul>
+                  </div>
+                </div>
+               </div>
+
+
+             <!-- Work Experience details -->
+             <div class="form-group mt-3" id="experiencedetails">
+                <div class="card-header"><h3 style="color: indigo;
+                text-shadow: 2px 3px 2px gray;
+                font-weight: bold;">Work Experience</h3></div>
+               <div class="card">
+                  <div class="card-body">
+                   <ul Id="experiencelist">
+                     <li>
+                         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Saepe, aut?
+                     </li>
+                     <li>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Saepe, aut?
+                    </li>
+                   </ul>
+                  </div>
+                </div>
+               </div>
+
+              <!-- certifications Details -->
+               <div class="form-group mt-3" id="certificatedetail">
+                <div class="card-header"><h3 style="color: indigo;
+                text-shadow: 2px 3px 2px gray;
+                font-weight: bold;">Certifications</h3></div>
+               <div class="card">
+                  <div class="card-body">
+                   <ul id="certificatelist">
+                     <li>
+                         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Saepe, aut?
+                     </li>
+                     <li>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Saepe, aut?
+                    </li>
+                   </ul>
+                  </div>
+                </div>
+               </div>
+
+                <!-- internship details -->
+               <div class="form-group mt-3" id="internshipdetail">
+                <div class="card-header"><h3 style="color: indigo;
+                text-shadow: 2px 3px 2px gray;
+                font-weight: bold;">Internship</h3></div>
+               <div class="card">
+                  <div class="card-body">
+                   <ul id="internshiplist">
+                     <li>
+                         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Saepe, aut?
+                     </li>
+                     <li>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Saepe, aut?
+                    </li>
+                   </ul>
+                  </div>
+                </div>
+               </div>
+            
+             <!-- Project details -->
+             <div class="form-group mt-3" Id="projectdetail">
+              <div class="card-header"><h3 style="color: indigo;
+              text-shadow: 2px 3px 2px gray;
+              font-weight: bold;">Acadmic Projects</h3></div>
+             <div class="card">
+                <div class="card-body">
+                 <ul Id="projectlist">
+                   <li>
+                       Lorem ipsum dolor sit.
+                   </li>
+                   <li>
+                      Lorem ipsum dolor sit.
+                  </li>
+                 </ul>
+                </div>
+              </div>
+              </div>
+
+             
+
+         </div>
+        </div>
+        </div>
+    </div>
+    <script src="Resume.js"></script>
+ <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+</body>
+</html>

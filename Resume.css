@@ -1,0 +1,63 @@
+h1{
+     font-weight: bolder;
+     text-shadow: 2px 3px 2px red;
+     font-size: 50px;
+     background-color:darksalmon;
+}
+h1:hover{
+    text-shadow: 2px 3px 2px rgb(0, 204, 255);
+}
+#makeby{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    margin-left: 320px;
+    text-decoration:underline;
+}
+#makeby:hover{
+    font-weight: bold;
+}
+#name ,#gmail{
+    width: 400px;
+}
+#DOB{
+    width: 250px; 
+}
+input{
+    margin-left: 10px;
+}
+.img1{
+    border-radius: 50%;
+    width :200px;
+    box-shadow: 2px 7px 6px black;
+}
+.infopart{
+    background-color: rgb(212, 248, 248);
+}
+
+.infohead{
+    text-shadow: 2px 3px 2px black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+   color: green;
+   font-weight: bolder;
+   margin-left: 6px;
+}
+.detail{
+    margin-left: 20px;
+    font-weight: bold;
+    display: inline-block;
+}
+#Name1
+{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 50px;
+}
+.instagramandlinkdinlogo{
+    width: 23px;
+    margin-right: 20px;
+    margin-left:-6px;
+    border-radius:20%;
+    box-shadow: 2px 3px 2px black;
+
+}
+#templet{
+    display: none;
+}
